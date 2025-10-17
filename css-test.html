@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temel CSS Bilgileri Özeti</title>
+    <style>
+        /* Reset ve Temel Stiller */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        /* Header Stilleri */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #e74c3c, #f39c12, #2ecc71, #3498db, #9b59b6);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* İçerik Düzeni */
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            padding: 40px 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid #3498db;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #ecf0f1;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card h2 i {
+            margin-right: 10px;
+            color: #3498db;
+        }
+        
+        .card h3 {
+            color: #34495e;
+            margin: 18px 0 12px;
+            font-size: 1.2rem;
+        }
+        
+        /* Kod Blokları */
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 18px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .code-block .comment {
+            color: #7f8c8d;
+        }
+        
+        .code-block .property {
+            color: #3498db;
+        }
+        
+        .code-block .value {
+            color: #2ecc71;
+        }
+        
+        .code-block .selector {
+            color: #e74c3c;
+        }
+        
+        /* Etiket Stilleri */
+        .tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px 8px 5px 0;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .attribute {
+            display: inline-block;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px 8px 5px 0;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .value-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px 8px 5px 0;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Örnek Kutu */
+        .example-box {
+            background: #f8f9fa;
+            border: 2px dashed #bdc3c7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .demo-element {
+            background: #3498db;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-element:hover {
+            background: #2980b9;
+            transform: scale(1.02);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #2c3e50;
+            color: white;
+            margin-top: 20px;
+        }
+        
+        footer p {
+            margin: 8px 0;
+        }
+        
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                padding: 25px 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Özel Stil Örnekleri */
+        .flex-demo {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .flex-item {
+            background: #e74c3c;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .grid-demo {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .grid-item {
+            background: #2ecc71;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Temel CSS Bilgileri Özeti</h1>
+            <p class="subtitle">Stil sayfaları ile web tasarımını öğrenmek için ihtiyacınız olan temel CSS bilgileri</p>
+        </header>
+        
+        <div class="content">
+            <div class="card">
+                <h2><i>📖</i> CSS Nedir?</h2>
+                <p>CSS (Cascading Style Sheets), HTML elementlerinin görünümünü ve düzenini kontrol etmek için kullanılan stil dilidir.</p>
+                
+                <h3>CSS Söz Dizimi</h3>
+                <div class="code-block">
+                    <span class="selector">seçici</span> {<br>
+                    &nbsp;&nbsp;<span class="property">özellik</span>: <span class="value">değer</span>;<br>
+                    }
+                </div>
+                
+                <h3>CSS Ekleme Yöntemleri</h3>
+                <p><span class="tag">Inline CSS</span>: HTML elementi içinde style attribute'u ile</p>
+                <p><span class="tag">Internal CSS</span>: &lt;style&gt; etiketleri arasında</p>
+                <p><span class="tag">External CSS</span>: Harici .css dosyası ile</p>
+            </div>
+            
+            <div class="card">
+                <h2><i>🎯</i> Seçiciler (Selectors)</h2>
+                
+                <h3>Temel Seçiciler</h3>
+                <p><span class="tag">Element</span>: p, h1, div gibi HTML etiketleri</p>
+                <p><span class="tag">Class</span>: .className şeklinde (birden fazla element)</p>
+                <p><span class="tag">ID</span>: #idName şeklinde (tek bir element)</p>
+                
+                <h3>Gelişmiş Seçiciler</h3>
+                <p><span class="tag">Gruplama</span>: h1, p, div (virgül ile ayırma)</p>
+                <p><span class="tag">Çocuk</span>: div > p (direkt çocuk element)</p>
+                <p><span class="tag">Torun</span>: div p (tüm torun elementler)</p>
+                
+                <div class="code-block">
+                    <span class="comment">/* Element seçici */</span><br>
+                    <span class="selector">p</span> { <span class="property">color</span>: <span class="value">blue</span>; }<br><br>
+                    
+                    <span class="comment">/* Class seçici */</span><br>
+                    <span class="selector">.kirmizi</span> { <span class="property">color</span>: <span class="value">red</span>; }<br><br>
+                    
+                    <span class="comment">/* ID seçici */</span><br>
+                    <span class="selector">#baslik</span> { <span class="property">font-size</span>: <span class="value">24px</span>; }
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2><i>🎨</i> Renk ve Tipografi</h2>
+                
+                <h3>Renk Tanımlama</h3>
+                <p><span class="tag">İsim</span>: red, blue, green</p>
+                <p><span class="tag">HEX</span>: #FF0000, #0000FF</p>
+                <p><span class="tag">RGB</span>: rgb(255, 0, 0)</p>
+                <p><span class="tag">RGBA</span>: rgba(255, 0, 0, 0.5) (alpha: şeffaflık)</p>
+                
+                <h3>Yazı Stilleri</h3>
+                <p><span class="attribute">font-family</span>: Yazı tipi</p>
+                <p><span class="attribute">font-size</span>: Yazı boyutu</p>
+                <p><span class="attribute">font-weight</span>: Yazı kalınlığı</p>
+                <p><span class="attribute">text-align</span>: Metin hizalaması</p>
+                
+                <div class="code-block">
+                    <span class="selector">h1</span> {<br>
+                    &nbsp;&nbsp;<span class="property">color</span>: <span class="value">#2c3e50</span>;<br>
+                    &nbsp;&nbsp;<span class="property">font-family</span>: <span class="value">Arial, sans-serif</span>;<br>
+                    &nbsp;&nbsp;<span class="property">font-size</span>: <span class="value">2rem</span>;<br>
+                    &nbsp;&nbsp;<span class="property">text-align</span>: <span class="value">center</span>;<br>
+                    }
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2><i>📐</i> Kutu Modeli (Box Model)</h2>
+                <p>Her HTML elementi bir kutu olarak düşünülür:</p>
+                
+                <div class="example-box">
+                    <div style="text-align: center; margin: 15px 0;">
+                        <div style="background: #3498db; color: white; padding: 30px; margin: 20px; border: 5px solid #2980b9; border-radius: 5px;">
+                            İçerik (Content)
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Kutu Model Özellikleri</h3>
+                <p><span class="attribute">width</span>/<span class="attribute">height</span>: Genişlik/Yükseklik</p>
+                <p><span class="attribute">padding</span>: İç boşluk</p>
+                <p><span class="attribute">border</span>: Kenarlık</p>
+                <p><span class="attribute">margin</span>: Dış boşluk</p>
+                
+                <div class="code-block">
+                    <span class="selector">.kutu</span> {<br>
+                    &nbsp;&nbsp;<span class="property">width</span>: <span class="value">300px</span>;<br>
+                    &nbsp;&nbsp;<span class="property">padding</span>: <span class="value">20px</span>;<br>
+                    &nbsp;&nbsp;<span class="property">border</span>: <span class="value">2px solid #333</span>;<br>
+                    &nbsp;&nbsp;<span class="property">margin</span>: <span class="value">10px</span>;<br>
+                    }
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2><i>🎪</i> Flexbox ve Grid</h2>
+                
+                <h3>Flexbox (Esnek Kutu)</h3>
+                <p>Tek boyutlu düzenler için</p>
+                <div class="flex-demo">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                </div>
+                
+                <h3>CSS Grid</h3>
+                <p>İki boyutlu düzenler için</p>
+                <div class="grid-demo">
+                    <div class="grid-item">A</div>
+                    <div class="grid-item">B</div>
+                    <div class="grid-item">C</div>
+                    <div class="grid-item">D</div>
+                </div>
+                
+                <div class="code-block">
+                    <span class="comment">/* Flexbox */</span><br>
+                    <span class="selector">.container</span> {<br>
+                    &nbsp;&nbsp;<span class="property">display</span>: <span class="value">flex</span>;<br>
+                    &nbsp;&nbsp;<span class="property">justify-content</span>: <span class="value">space-between</span>;<br>
+                    }<br><br>
+                    
+                    <span class="comment">/* Grid */</span><br>
+                    <span class="selector">.container</span> {<br>
+                    &nbsp;&nbsp;<span class="property">display</span>: <span class="value">grid</span>;<br>
+                    &nbsp;&nbsp;<span class="property">grid-template-columns</span>: <span class="value">1fr 1fr</span>;<br>
+                    }
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2><i>✨</i> Animasyon ve Geçişler</h2>
+                
+                <h3>Transition (Geçiş)</h3>
+                <p>CSS özelliklerindeki değişikliklere yumuşak geçiş ekler</p>
+                
+                <h3>Animation (Animasyon)</h3>
+                <p>Karmaşık animasyonlar için keyframes kullanır</p>
+                
+                <div class="demo-element" style="animation: colorChange 3s infinite alternate;">
+                    Animasyon Örneği
+                </div>
+                
+                <div class="code-block">
+                    <span class="comment">/* Transition */</span><br>
+                    <span class="selector">.button</span> {<br>
+                    &nbsp;&nbsp;<span class="property">transition</span>: <span class="value">all 0.3s ease</span>;<br>
+                    }<br><br>
+                    
+                    <span class="comment">/* Animation */</span><br>
+                    <span class="selector">@keyframes colorChange</span> {<br>
+                    &nbsp;&nbsp;<span class="selector">from</span> { <span class="property">background</span>: <span class="value">#3498db</span>; }<br>
+                    &nbsp;&nbsp;<span class="selector">to</span> { <span class="property">background</span>: <span class="value">#e74c3c</span>; }<br>
+                    }
+                </div>
+                
+                <style>
+                    @keyframes colorChange {
+                        from { background: #3498db; }
+                        to { background: #e74c3c; }
+                    }
+                </style>
+            </div>
+        </div>
+        
+        <footer>
+            <p><strong>Temel CSS Bilgileri Özeti</strong> &copy; 2023</p>
+            <p>CSS öğrenmeye başlamak için bu temel bilgilerle iyi bir başlangıç yapabilirsiniz.</p>
+        </footer>
+    </div>
+</body>
+</html>

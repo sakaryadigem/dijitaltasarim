@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Temel Bilgileri Özeti</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+        
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            color: #3498db;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .card h3 {
+            color: #2c3e50;
+            margin: 15px 0 10px;
+        }
+        
+        .code-block {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-right: 5px;
+        }
+        
+        .attribute {
+            display: inline-block;
+            background-color: #9b59b6;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-right: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #34495e;
+            color: white;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HTML Temel Bilgileri Özeti</h1>
+            <p class="subtitle">Web geliştirmeye başlamak için ihtiyacınız olan temel HTML bilgileri</p>
+        </header>
+        
+        <div class="content">
+            <div class="card">
+                <h2>HTML Nedir?</h2>
+                <p>HTML (HyperText Markup Language), web sayfalarının yapısını oluşturmak için kullanılan standart işaretleme dilidir. Tarayıcılar HTML kodlarını yorumlayarak görsel web sayfalarına dönüştürür.</p>
+                
+                <h3>Temel HTML Yapısı</h3>
+                <div class="code-block">
+                    &lt;!DOCTYPE html&gt;<br>
+                    &lt;html&gt;<br>
+                    &lt;head&gt;<br>
+                    &nbsp;&nbsp;&lt;title&gt;Sayfa Başlığı&lt;/title&gt;<br>
+                    &lt;/head&gt;<br>
+                    &lt;body&gt;<br>
+                    &nbsp;&nbsp;&lt;h1&gt;Başlık&lt;/h1&gt;<br>
+                    &nbsp;&nbsp;&lt;p&gt;Paragraf&lt;/p&gt;<br>
+                    &lt;/body&gt;<br>
+                    &lt;/html&gt;
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Temel HTML Etiketleri</h2>
+                
+                <h3>Başlık Etiketleri</h3>
+                <p><span class="tag">&lt;h1&gt;</span> - <span class="tag">&lt;h6&gt;</span>: Başlık etiketleri (h1 en büyük, h6 en küçük)</p>
+                
+                <h3>Metin Etiketleri</h3>
+                <p><span class="tag">&lt;p&gt;</span>: Paragraf</p>
+                <p><span class="tag">&lt;strong&gt;</span> veya <span class="tag">&lt;b&gt;</span>: Kalın metin</p>
+                <p><span class="tag">&lt;em&gt;</span> veya <span class="tag">&lt;i&gt;</span>: İtalik metin</p>
+                <p><span class="tag">&lt;u&gt;</span>: Altı çizili metin</p>
+                
+                <h3>Bağlantı ve Görsel</h3>
+                <p><span class="tag">&lt;a&gt;</span>: Bağlantı (link)</p>
+                <p><span class="tag">&lt;img&gt;</span>: Resim</p>
+            </div>
+            
+            <div class="card">
+                <h2>Listeler ve Tablolar</h2>
+                
+                <h3>Liste Etiketleri</h3>
+                <p><span class="tag">&lt;ul&gt;</span>: Sırasız liste</p>
+                <p><span class="tag">&lt;ol&gt;</span>: Sıralı liste</p>
+                <p><span class="tag">&lt;li&gt;</span>: Liste öğesi</p>
+                
+                <h3>Tablo Etiketleri</h3>
+                <p><span class="tag">&lt;table&gt;</span>: Tablo</p>
+                <p><span class="tag">&lt;tr&gt;</span>: Tablo satırı</p>
+                <p><span class="tag">&lt;td&gt;</span>: Tablo hücresi</p>
+                <p><span class="tag">&lt;th&gt;</span>: Tablo başlık hücresi</p>
+                
+                <div class="code-block">
+                    &lt;table&gt;<br>
+                    &nbsp;&nbsp;&lt;tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;İsim&lt;/th&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Yaş&lt;/th&gt;<br>
+                    &nbsp;&nbsp;&lt;/tr&gt;<br>
+                    &nbsp;&nbsp;&lt;tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Ahmet&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;25&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&lt;/tr&gt;<br>
+                    &lt;/table&gt;
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Formlar</h2>
+                <p>HTML formları kullanıcıdan veri toplamak için kullanılır.</p>
+                
+                <h3>Temel Form Etiketleri</h3>
+                <p><span class="tag">&lt;form&gt;</span>: Form kapsayıcısı</p>
+                <p><span class="tag">&lt;input&gt;</span>: Giriş alanı</p>
+                <p><span class="tag">&lt;textarea&gt;</span>: Çok satırlı metin alanı</p>
+                <p><span class="tag">&lt;select&gt;</span> ve <span class="tag">&lt;option&gt;</span>: Açılır liste</p>
+                <p><span class="tag">&lt;button&gt;</span>: Buton</p>
+                
+                <h3>Input Türleri</h3>
+                <p><span class="attribute">type="text"</span>: Metin girişi</p>
+                <p><span class="attribute">type="password"</span>: Şifre girişi</p>
+                <p><span class="attribute">type="email"</span>: E-posta girişi</p>
+                <p><span class="attribute">type="submit"</span>: Gönder butonu</p>
+            </div>
+            
+            <div class="card">
+                <h2>Önemli Özellikler</h2>
+                
+                <h3>id ve class</h3>
+                <p><span class="attribute">id</span>: Bir öğeye benzersiz kimlik verir</p>
+                <p><span class="attribute">class</span>: Öğeleri gruplamak için kullanılır</p>
+                
+                <h3>Diğer Önemli Özellikler</h3>
+                <p><span class="attribute">href</span>: Bağlantı adresi</p>
+                <p><span class="attribute">src</span>: Kaynak dosya yolu</p>
+                <p><span class="attribute">alt</span>: Alternatif metin (görseller için)</p>
+                <p><span class="attribute">style</span>: Satır içi CSS</p>
+                
+                <div class="code-block">
+                    &lt;a href="https://example.com"&gt;Örnek Site&lt;/a&gt;<br>
+                    &lt;img src="resim.jpg" alt="Açıklama"&gt;<br>
+                    &lt;p id="benzersiz" class="kirmizi"&gt;Metin&lt;/p&gt;
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Semantik HTML</h2>
+                <p>Semantik HTML, içeriğin anlamını daha iyi tanımlamak için kullanılan etiketlerdir.</p>
+                
+                <h3>Semantik Etiketler</h3>
+                <p><span class="tag">&lt;header&gt;</span>: Sayfa veya bölüm başlığı</p>
+                <p><span class="tag">&lt;nav&gt;</span>: Navigasyon menüsü</p>
+                <p><span class="tag">&lt;main&gt;</span>: Ana içerik</p>
+                <p><span class="tag">&lt;section&gt;</span>: İçerik bölümü</p>
+                <p><span class="tag">&lt;article&gt;</span>: Bağımsız içerik</p>
+                <p><span class="tag">&lt;aside&gt;</span>: Yan içerik</p>
+                <p><span class="tag">&lt;footer&gt;</span>: Sayfa veya bölüm altbilgisi</p>
+                
+                <p>Semantik etiketler, hem arama motorları hem de ekran okuyucular için daha anlamlı bir yapı oluşturur.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>HTML Temel Bilgileri Özeti &copy; 2023</p>
+            <p>Bu özet, HTML öğrenmeye başlayanlar için temel bilgileri içermektedir.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temel Web Teknolojileri Rehberi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset ve Temel Stiller */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+            --info: #9b59b6;
+            --light: #ecf0f1;
+            --dark: #34495e;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        /* Header Stilleri */
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--danger), var(--warning), var(--success), var(--primary), var(--info));
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+        
+        .tech-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Navigasyon */
+        nav {
+            background: var(--dark);
+            padding: 0 40px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links li {
+            margin: 0;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 18px 25px;
+            display: block;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        /* İçerik Düzeni */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            padding: 40px;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .sidebar {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 25px;
+            height: fit-content;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Kart Stilleri */
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--info));
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light);
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+        }
+        
+        .card h2 i {
+            margin-right: 12px;
+            font-size: 1.8rem;
+        }
+        
+        .card h3 {
+            color: var(--dark);
+            margin: 20px 0 12px;
+            font-size: 1.3rem;
+        }
+        
+        /* Kod Blokları */
+        .code-block {
+            background: var(--dark);
+            color: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            border-left: 5px solid var(--danger);
+        }
+        
+        .code-block .comment {
+            color: #7f8c8d;
+        }
+        
+        .code-block .tag {
+            color: #e74c3c;
+        }
+        
+        .code-block .attribute {
+            color: #3498db;
+        }
+        
+        .code-block .value {
+            color: #2ecc71;
+        }
+        
+        /* Etiket Stilleri */
+        .tech-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--info));
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px 8px 5px 0;
+            font-weight: 600;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .level-tag {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+        
+        /* Örnek Kutu */
+        .example-box {
+            background: #f8f9fa;
+            border: 2px dashed #bdc3c7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .demo-element {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        /* İlerleme Çubukları */
+        .skill-bar {
+            margin: 15px 0;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: between;
+            margin-bottom: 5px;
+        }
+        
+        .skill-level {
+            height: 10px;
+            background: #ecf0f1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--secondary);
+            color: white;
+            margin-top: 40px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Responsive Tasarım */
+        @media (max-width: 1100px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+            }
+            
+            .tech-stats {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+        
+        /* Özel Bileşenler */
+        .tech-roadmap {
+            margin: 20px 0;
+        }
+        
+        .roadmap-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+        
+        .roadmap-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background: var(--light);
+            color: var(--dark);
+        }
+        
+        .comparison-table tr:hover {
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Temel Web Teknolojileri Rehberi</h1>
+            <p class="subtitle">Modern web geliştirme için ihtiyacınız olan tüm temel teknolojiler ve araçlar</p>
+            <div class="tech-stats">
+                <div class="stat"><i class="fas fa-code"></i> 10+ Teknoloji</div>
+                <div class="stat"><i class="fas fa-layer-group"></i> 3 Katman</div>
+                <div class="stat"><i class="fas fa-rocket"></i> Modern Araçlar</div>
+            </div>
+        </header>
+        
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#frontend"><i class="fas fa-paint-brush"></i> Frontend</a></li>
+                <li><a href="#backend"><i class="fas fa-server"></i> Backend</a></li>
+                <li><a href="#database"><i class="fas fa-database"></i> Veritabanı</a></li>
+                <li><a href="#tools"><i class="fas fa-tools"></i> Araçlar</a></li>
+                <li><a href="#trends"><i class="fas fa-chart-line"></i> Trendler</a></li>
+            </ul>
+        </nav>
+        
+        <div class="content">
+            <div class="main-content">
+                <!-- Frontend Teknolojileri -->
+                <div class="card" id="frontend">
+                    <h2><i class="fas fa-paint-brush"></i> Frontend Teknolojileri</h2>
+                    <p>Kullanıcıların gördüğü ve etkileşimde bulunduğu arayüzü oluşturan teknolojiler.</p>
+                    
+                    <h3>Çekirdek Teknolojiler</h3>
+                    <p><span class="tech-tag">HTML5</span> <span class="level-tag">Temel</span></p>
+                    <p>Web sayfalarının yapısını ve içeriğini oluşturur.</p>
+                    
+                    <p><span class="tech-tag">CSS3</span> <span class="level-tag">Temel</span></p>
+                    <p>Web sayfalarının görünümünü ve düzenini kontrol eder.</p>
+                    
+                    <p><span class="tech-tag">JavaScript</span> <span class="level-tag">Temel</span></p>
+                    <p>Web sayfalarına etkileşim ve dinamik davranış ekler.</p>
+                    
+                    <h3>Modern Framework'ler</h3>
+                    <p><span class="tech-tag">React</span> <span class="level-tag">İleri</span></p>
+                    <p>Facebook tarafından geliştirilen component tabanlı kütüphane.</p>
+                    
+                    <p><span class="tech-tag">Vue.js</span> <span class="level-tag">İleri</span></p>
+                    <p>Progressive framework - kademeli olarak benimsenebilir.</p>
+                    
+                    <p><span class="tech-tag">Angular</span> <span class="level-tag">İleri</span></p>
+                    <p>Google tarafından geliştirilen tam özellikli framework.</p>
+                    
+                    <div class="code-block">
+                        <span class="comment">// Modern React Bileşeni Örneği</span><br>
+                        <span class="tag">import</span> React, { useState } <span class="tag">from</span> <span class="value">'react'</span>;<br><br>
+                        
+                        <span class="tag">function</span> <span class="attribute">Counter</span>() {<br>
+                        &nbsp;&nbsp;<span class="tag">const</span> [count, setCount] = <span class="attribute">useState</span>(0);<br><br>
+                        
+                        &nbsp;&nbsp;<span class="tag">return</span> (<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;div&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span> <span class="attribute">onClick</span>={() => setCount(count - 1)}<span class="tag">&gt;</span>-<span class="tag">&lt;/button&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;span&gt;</span>{count}<span class="tag">&lt;/span&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;button</span> <span class="attribute">onClick</span>={() => setCount(count + 1)}<span class="tag">&gt;</span>+<span class="tag">&lt;/button&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span><br>
+                        &nbsp;&nbsp;);<br>
+                        }
+                    </div>
+                </div>
+                
+                <!-- Backend Teknolojileri -->
+                <div class="card" id="backend">
+                    <h2><i class="fas fa-server"></i> Backend Teknolojileri</h2>
+                    <p>Sunucu tarafında çalışan, veri işleme ve iş mantığından sorumlu teknolojiler.</p>
+                    
+                    <h3>Sunucu Taraflı Diller</h3>
+                    <p><span class="tech-tag">Node.js</span> <span class="level-tag">Orta</span></p>
+                    <p>JavaScript'i sunucu tarafında çalıştırmayı sağlar.</p>
+                    
+                    <p><span class="tech-tag">Python</span> <span class="level-tag">Orta</span></p>
+                    <p>Django ve Flask framework'leri ile popüler.</p>
+                    
+                    <p><span class="tech-tag">PHP</span> <span class="level-tag">Orta</span></p>
+                    <p>WordPress ve Laravel ile yaygın kullanım.</p>
+                    
+                    <p><span class="tech-tag">Java</span> <span class="level-tag">İleri</span></p>
+                    <p>Spring framework'ü ile kurumsal uygulamalar.</p>
+                    
+                    <h3>Backend Framework'ler</h3>
+                    <p><span class="tech-tag">Express.js</span> <span class="level-tag">Orta</span></p>
+                    <p>Node.js için minimal web framework'ü.</p>
+                    
+                    <p><span class="tech-tag">Django</span> <span class="level-tag">Orta</span></p>
+                    <p>Python için "batteries included" framework.</p>
+                    
+                    <p><span class="tech-tag">Laravel</span> <span class="level-tag">Orta</span></p>
+                    <p>PHP için elegant syntax'a sahip framework.</p>
+                    
+                    <div class="code-block">
+                        <span class="comment">// Express.js Route Örneği</span><br>
+                        <span class="tag">const</span> express = <span class="attribute">require</span>(<span class="value">'express'</span>);<br>
+                        <span class="tag">const</span> app = <span class="attribute">express</span>();<br><br>
+                        
+                        <span class="attribute">app</span>.<span class="attribute">get</span>(<span class="value">'/api/users'</span>, (req, res) => {<br>
+                        &nbsp;&nbsp;<span class="tag">const</span> users = [<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;{ id: 1, name: <span class="value">'Ahmet'</span> },<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;{ id: 2, name: <span class="value">'Mehmet'</span> }<br>
+                        &nbsp;&nbsp;];<br>
+                        &nbsp;&nbsp;res.<span class="attribute">json</span>(users);<br>
+                        });<br><br>
+                        
+                        <span class="attribute">app</span>.<span class="attribute">listen</span>(3000, () => {<br>
+                        &nbsp;&nbsp;console.<span class="attribute">log</span>(<span class="value">'Sunucu 3000 portunda çalışıyor'</span>);<br>
+                        });
+                    </div>
+                </div>
+                
+                <!-- Veritabanı Teknolojileri -->
+                <div class="card" id="database">
+                    <h2><i class="fas fa-database"></i> Veritabanı Teknolojileri</h2>
+                    <p>Uygulama verilerinin saklandığı ve yönetildiği sistemler.</p>
+                    
+                    <h3>İlişkisel Veritabanları</h3>
+                    <p><span class="tech-tag">MySQL</span> <span class="level-tag">Orta</span></p>
+                    <p>Açık kaynak, yaygın kullanılan RDBMS.</p>
+                    
+                    <p><span class="tech-tag">PostgreSQL</span> <span class="level-tag">Orta</span></p>
+                    <p>Gelişmiş özelliklere sahip açık kaynak RDBMS.</p>
+                    
+                    <p><span class="tech-tag">SQLite</span> <span class="level-tag">Temel</span></p>
+                    <p>Hafif, dosya tabanlı veritabanı.</p>
+                    
+                    <h3>NoSQL Veritabanları</h3>
+                    <p><span class="tech-tag">MongoDB</span> <span class="level-tag">Orta</span></p>
+                    <p>Belge tabanlı NoSQL veritabanı.</p>
+                    
+                    <p><span class="tech-tag">Redis</span> <span class="level-tag">Orta</span></p>
+                    <p>Bellek içi anahtar-değer deposu.</p>
+                    
+                    <p><span class="tech-tag">Firebase</span> <span class="level-tag">Orta</span></p>
+                    <p>Google'ın realtime veritabanı çözümü.</p>
+                    
+                    <div class="code-block">
+                        <span class="comment">-- SQL Sorgu Örnekleri</span><br>
+                        <span class="tag">CREATE TABLE</span> users (<br>
+                        &nbsp;&nbsp;id <span class="attribute">INT</span> <span class="tag">PRIMARY KEY</span> <span class="tag">AUTO_INCREMENT</span>,<br>
+                        &nbsp;&nbsp;name <span class="attribute">VARCHAR</span>(50) <span class="tag">NOT NULL</span>,<br>
+                        &nbsp;&nbsp;email <span class="attribute">VARCHAR</span>(100) <span class="tag">UNIQUE</span>,<br>
+                        &nbsp;&nbsp;created_at <span class="attribute">TIMESTAMP</span> <span class="tag">DEFAULT</span> <span class="attribute">CURRENT_TIMESTAMP</span><br>
+                        );<br><br>
+                        
+                        <span class="tag">INSERT INTO</span> users (name, email) <br>
+                        <span class="tag">VALUES</span> (<span class="value">'Ali'</span>, <span class="value">'ali@example.com'</span>);<br><br>
+                        
+                        <span class="tag">SELECT</span> * <span class="tag">FROM</span> users <span class="tag">WHERE</span> name = <span class="value">'Ali'</span>;
+                    </div>
+                </div>
+                
+                <!-- Geliştirme Araçları -->
+                <div class="card" id="tools">
+                    <h2><i class="fas fa-tools"></i> Geliştirme Araçları</h2>
+                    <p>Web geliştirme sürecini kolaylaştıran araçlar ve teknolojiler.</p>
+                    
+                    <h3>Editörler ve IDE'ler</h3>
+                    <p><span class="tech-tag">Visual Studio Code</span> <span class="level-tag">Temel</span></p>
+                    <p>Microsoft'un popüler, hafif kod editörü.</p>
+                    
+                    <p><span class="tech-tag">WebStorm</span> <span class="level-tag">Orta</span></p>
+                    <p>JetBrains'in JavaScript IDE'si.</p>
+                    
+                    <p><span class="tech-tag">Sublime Text</span> <span class="level-tag">Temel</span></p>
+                    <p>Hızlı ve hafif text editörü.</p>
+                    
+                    <h3>Versiyon Kontrol</h3>
+                    <p><span class="tech-tag">Git</span> <span class="level-tag">Temel</span></p>
+                    <p>Dağıtık versiyon kontrol sistemi.</p>
+                    
+                    <p><span class="tech-tag">GitHub</span> <span class="level-tag">Temel</span></p>
+                    <p>Git repositor'larını barındıran platform.</p>
+                    
+                    <p><span class="tech-tag">GitLab</span> <span class="level-tag">Orta</span></p>
+                    <p>CI/CD özellikleri ile kapsamlı platform.</p>
+                    
+                    <h3>Paket Yöneticileri</h3>
+                    <p><span class="tech-tag">npm</span> <span class="level-tag">Temel</span></p>
+                    <p>Node.js paket yöneticisi.</p>
+                    
+                    <p><span class="tech-tag">yarn</span> <span class="level-tag">Temel</span></p>
+                    <p>Facebook'un npm alternatifi.</p>
+                </div>
+                
+                <!-- Web Teknolojisi Trendleri -->
+                <div class="card" id="trends">
+                    <h2><i class="fas fa-chart-line"></i> Teknoloji Trendleri</h2>
+                    <p>Günümüzde popüler olan ve geleceği şekillendiren web teknolojileri.</p>
+                    
+                    <h3>Modern Geliştirme</h3>
+                    <p><span class="tech-tag">JAMstack</span> <span class="level-tag">İleri</span></p>
+                    <p>JavaScript, APIs ve Markup ile modern web mimarisi.</p>
+                    
+                    <p><span class="tech-tag">Serverless</span> <span class="level-tag">İleri</span></p>
+                    <p>Sunucu yönetimi gerektirmeyen mimari.</p>
+                    
+                    <p><span class="tech-tag">Micro Frontends</span> <span class="level-tag">İleri</span></p>
+                    <p>Frontend uygulamalarını mikroservis olarak yapılandırma.</p>
+                    
+                    <h3>Yükselen Teknolojiler</h3>
+                    <p><span class="tech-tag">WebAssembly</span> <span class="level-tag">İleri</span></p>
+                    <p>Web'de yüksek performanslı kod çalıştırma.</p>
+                    
+                    <p><span class="tech-tag">Progressive Web Apps</span> <span class="level-tag">Orta</span></p>
+                    <p>Native app benzeri web uygulamaları.</p>
+                    
+                    <p><span class="tech-tag">GraphQL</span> <span class="level-tag">Orta</span></p>
+                    <p>REST API'lere alternatif veri sorgulama dili.</p>
+                    
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Teknoloji</th>
+                                <th>Popülerlik</th>
+                                <th>Öğrenme Zorluğu</th>
+                                <th>İş Pazarı</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>React</td>
+                                <td>Çok Yüksek</td>
+                                <td>Orta</td>
+                                <td>Çok İyi</td>
+                            </tr>
+                            <tr>
+                                <td>Vue.js</td>
+                                <td>Yüksek</td>
+                                <td>Düşük</td>
+                                <td>İyi</td>
+                            </tr>
+                            <tr>
+                                <td>Angular</td>
+                                <td>Yüksek</td>
+                                <td>Yüksek</td>
+                                <td>İyi</td>
+                            </tr>
+                            <tr>
+                                <td>Node.js</td>
+                                <td>Çok Yüksek</td>
+                                <td>Orta</td>
+                                <td>Çok İyi</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h2><i class="fas fa-road"></i> Öğrenme Yol Haritası</h2>
+                <div class="tech-roadmap">
+                    <div class="roadmap-item">
+                        <div class="roadmap-icon">1</div>
+                        <div>
+                            <strong>Temel Web Teknolojileri</strong>
+                            <p>HTML, CSS, JavaScript</p>
+                        </div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-icon">2</div>
+                        <div>
+                            <strong>Frontend Framework</strong>
+                            <p>React, Vue veya Angular</p>
+                        </div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-icon">3</div>
+                        <div>
+                            <strong>Backend Geliştirme</strong>
+                            <p>Node.js, Express, Veritabanı</p>
+                        </div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-icon">4</div>
+                        <div>
+                            <strong>Araçlar & DevOps</strong>
+                            <p>Git, Docker, CI/CD</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2><i class="fas fa-lightbulb"></i> Hızlı İpuçları</h2>
+                <div class="example-box">
+                    <p><strong>Responsive Tasarım:</strong> Mobile-first yaklaşımını benimseyin</p>
+                    <p><strong>Performans:</strong> Görselleri optimize edin, lazy loading kullanın</p>
+                    <p><strong>SEO:</strong> Semantik HTML ve meta tag'leri kullanın</p>
+                    <p><strong>Güvenlik:</strong> Input validation ve HTTPS kullanın</p>
+                </div>
+                
+                <h2><i class="fas fa-rocket"></i> Kaynaklar</h2>
+                <ul style="padding-left: 20px; margin-top: 15px;">
+                    <li style="margin-bottom: 10px;">MDN Web Docs</li>
+                    <li style="margin-bottom: 10px;">freeCodeCamp</li>
+                    <li style="margin-bottom: 10px;">W3Schools</li>
+                    <li style="margin-bottom: 10px;">Stack Overflow</li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <h3>Web Teknolojileri Rehberi</h3>
+            <p>Modern web geliştirme dünyasında başarılı olmak için gerekli tüm temel bilgiler</p>
+            
+            <div class="footer-links">
+                <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#"><i class="fab fa-codepen"></i> CodePen</a>
+                <a href="#"><i class="fab fa-dev"></i> Dev.to</a>
+                <a href="#"><i class="fab fa-free-code-camp"></i> freeCodeCamp</a>
+            </div>
+            
+            <p style="margin-top: 20px; opacity: 0.8;">&copy; 2023 Web Teknolojileri Rehberi. Tüm hakları saklıdır.</p>
+        </footer>
+    </div>
+</body>
+</html>
