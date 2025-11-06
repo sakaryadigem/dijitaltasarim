@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Eğitim Portalı - Web Geliştirme Öğreniyorum</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset ve Temel Stiller */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --success: #2ecc71;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --text: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--text);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Header ve Navigasyon */
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        /* Ana Navigasyon */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 5px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        nav a.active {
+            background: var(--accent);
+        }
+        
+        /* Yan Navigasyon */
+        .sidebar {
+            background: white;
+            width: 250px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            height: calc(100vh - 80px);
+            position: fixed;
+            overflow-y: auto;
+        }
+        
+        .sidebar h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        .sidebar ul {
+            list-style: none;
+        }
+        
+        .sidebar li {
+            margin-bottom: 8px;
+        }
+        
+        .sidebar a {
+            color: var(--dark);
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar a:hover {
+            background: var(--light);
+            color: var(--primary);
+        }
+        
+        .sidebar a.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Ana İçerik Alanı */
+        .main-content {
+            flex: 1;
+            margin-left: 250px;
+            padding: 30px;
+            max-width: calc(100% - 250px);
+        }
+        
+        .content-section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .content-section h2 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        /* Kartlar */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+        }
+        
+        .card-body {
+            padding: 15px;
+        }
+        
+        /* Kod Örnekleri */
+        .code-example {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            border-left: 4px solid var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                max-width: 100%;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        /* Özel Bileşenler */
+        .example-box {
+            border: 2px dashed #bdc3c7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            background: #f8f9fa;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin: 2px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background: #c0392b;
+        }
+        
+        /* İlerleme Çubuğu */
+        .progress-container {
+            background: #ecf0f1;
+            border-radius: 10px;
+            margin: 20px 0;
+            height: 10px;
+        }
+        
+        .progress-bar {
+            background: var(--success);
+            height: 100%;
+            border-radius: 10px;
+            width: 75%; /* Örnek değer */
+        }
+        
+        /* Tablo Stilleri */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: var(--light);
+            color: var(--secondary);
+        }
+        
+        tr:hover {
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header ve Ana Navigasyon -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <span>HTML Eğitim Portalı</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Ana Sayfa</a></li>
+                    <li><a href="#">HTML Dersleri</a></li>
+                    <li><a href="#">CSS Dersleri</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">Projeler</a></li>
+                    <li><a href="#">Sınav</a></li>
+                    <li><a href="#">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Yan Navigasyon Menüsü -->
+    <aside class="sidebar">
+        <h3><i class="fas fa-book-open"></i> HTML Konuları</h3>
+        <ul>
+            <li><a href="#" class="active">HTML'e Giriş</a></li>
+            <li><a href="#">Temel Etiketler</a></li>
+            <li><a href="#">Başlık ve Paragraf</a></li>
+            <li><a href="#">Listeler</a></li>
+            <li><a href="#">Bağlantılar</a></li>
+            <li><a href="#">Görseller</a></li>
+            <li><a href="#">Tablolar</a></li>
+            <li><a href="#">Formlar</a></li>
+            <li><a href="#">Semantik HTML</a></li>
+            <li><a href="#">HTML5 Yeni Özellikler</a></li>
+        </ul>
+        
+        <h3 style="margin-top: 30px;"><i class="fas fa-tasks"></i> İlerleme Durumu</h3>
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        <p style="text-align: center; margin-top: 5px;">%75 Tamamlandı</p>
+        
+        <h3 style="margin-top: 30px;"><i class="fas fa-question-circle"></i> Hızlı Test</h3>
+        <p style="margin: 10px 0;">HTML'de bağlantı oluşturmak için hangi etiket kullanılır?</p>
+        <button class="btn" style="width: 100%; margin: 5px 0;">&lt;a&gt;</button>
+        <button class="btn" style="width: 100%; margin: 5px 0;">&lt;link&gt;</button>
+        <button class="btn" style="width: 100%; margin: 5px 0;">&lt;href&gt;</button>
+    </aside>
+
+    <!-- Ana İçerik Bölümü -->
+    <main class="main-content">
+        <section class="content-section">
+            <h2><i class="fas fa-home"></i> Hoş Geldiniz!</h2>
+            <p>HTML Eğitim Portalı'na hoş geldiniz. Bu platform, web geliştirme öğrenmek isteyen öğrenciler için tasarlanmıştır. Aşağıdaki menüleri kullanarak derslere erişebilir, örnekleri inceleyebilir ve bilginizi test edebilirsiniz.</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-header">HTML Temelleri</div>
+                    <div class="card-body">
+                        <p>HTML'in temel yapısını ve en çok kullanılan etiketleri öğrenin.</p>
+                        <a href="#" class="btn" style="margin-top: 10px;">Derse Git</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Form Oluşturma</div>
+                    <div class="card-body">
+                        <p>Kullanıcı etkileşimi için formların nasıl oluşturulacağını öğrenin.</p>
+                        <a href="#" class="btn" style="margin-top: 10px;">Derse Git</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Semantik Web</div>
+                    <div class="card-body">
+                        <p>Anlamlı HTML yapısı oluşturma ve erişilebilirlik konularını öğrenin.</p>
+                        <a href="#" class="btn" style="margin-top: 10px;">Derse Git</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-code"></i> HTML Örnekleri</h2>
+            <p>Aşağıda temel HTML yapısının bir örneğini görebilirsiniz:</p>
+            
+            <div class="code-example">
+                &lt;!DOCTYPE html&gt;<br>
+                &lt;html lang="tr"&gt;<br>
+                &lt;head&gt;<br>
+                &nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+                &nbsp;&nbsp;&lt;title&gt;Web Sayfam&lt;/title&gt;<br>
+                &lt;/head&gt;<br>
+                &lt;body&gt;<br>
+                &nbsp;&nbsp;&lt;header&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Web Sitem&lt;/h1&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Ana Sayfa&lt;/a&gt;&lt;/li&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Hakkımda&lt;/a&gt;&lt;/li&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;İletişim&lt;/a&gt;&lt;/li&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br>
+                &nbsp;&nbsp;&lt;/header&gt;<br>
+                &nbsp;&nbsp;&lt;main&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;section&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Hoş Geldiniz&lt;/h2&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Bu benim web sitem.&lt;/p&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/section&gt;<br>
+                &nbsp;&nbsp;&lt;/main&gt;<br>
+                &nbsp;&nbsp;&lt;footer&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Telif Hakkı &copy; 2023&lt;/p&gt;<br>
+                &nbsp;&nbsp;&lt;/footer&gt;<br>
+                &lt;/body&gt;<br>
+                &lt;/html&gt;
+            </div>
+            
+            <div class="example-box">
+                <h3>Canlı Örnek:</h3>
+                <header style="background: #f0f0f0; padding: 10px; margin: 10px 0;">
+                    <h1 style="margin: 0; color: #333;">Web Sitem</h1>
+                    <nav>
+                        <ul style="display: flex; list-style: none; gap: 15px; padding: 0;">
+                            <li><a href="#" style="text-decoration: none; color: #3498db;">Ana Sayfa</a></li>
+                            <li><a href="#" style="text-decoration: none; color: #3498db;">Hakkımda</a></li>
+                            <li><a href="#" style="text-decoration: none; color: #3498db;">İletişim</a></li>
+                        </ul>
+                    </nav>
+                </header>
+                <main style="padding: 15px;">
+                    <section>
+                        <h2>Hoş Geldiniz</h2>
+                        <p>Bu benim web sitem.</p>
+                    </section>
+                </main>
+                <footer style="background: #f0f0f0; padding: 10px; text-align: center;">
+                    <p style="margin: 0;">Telif Hakkı © 2023</p>
+                </footer>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-table"></i> HTML Etiket Referansı</h2>
+            <p>Aşağıda en sık kullanılan HTML etiketlerinin bir listesini bulabilirsiniz:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Etiket</th>
+                        <th>Açıklama</th>
+                        <th>Kullanım</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="tag">&lt;html&gt;</span></td>
+                        <td>HTML belgesinin kök öğesi</td>
+                        <td>Tüm HTML içeriğini sarmalar</td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag">&lt;head&gt;</span></td>
+                        <td>Belge hakkında bilgi içerir</td>
+                        <td>Başlık, meta etiketleri, stiller</td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag">&lt;body&gt;</span></td>
+                        <td>Belgenin görünen içeriği</td>
+                        <td>Tüm görünen öğeleri içerir</td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag">&lt;h1&gt;-&lt;h6&gt;</span></td>
+                        <td>Başlık etiketleri</td>
+                        <td>İçerik başlıkları için</td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag">&lt;p&gt;</span></td>
+                        <td>Paragraf etiketi</td>
+                        <td>Metin paragrafları için</td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag">&lt;a&gt;</span></td>
+                        <td>Bağlantı etiketi</td>
+                        <td>Diğer sayfalara/sitelere bağlantı</td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag">&lt;img&gt;</span></td>
+                        <td>Resim etiketi</td>
+                        <td>Resim görüntülemek için</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <p>&copy; 2023 HTML Eğitim Portalı - Tüm Hakları Saklıdır</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
