@@ -10,16 +10,21 @@ Bu depo, temel web teknolojileri ve programlama araçları hakkında eğitim mat
    - **Kapsam:** Başlangıç seviyesinden orta seviyeye HTML bilgisi.
 
 ### 2. **Temel CSS Eğitimi**
-   - **Dosya:** [css-test](./css-test.html) (klasör/dosya)
+   - **Dosya:** [css-test.html](./css-test.html) (klasör/dosya)
    - **Açıklama:** CSS temelleri, selektörler, box model, flexbox, grid ve responsive tasarım konularını içerir.
    - **Kapsam:** Stil sayfaları oluşturma ve web sayfalarını biçimlendirme.
+   - 
+### 2. **Temel JS Eğitimi**
+   - **Dosya:** [js-test.html](./js-test.html) (klasör/dosya)
+   - **Açıklama: JavaScript'in temelleri, değişkenler, fonksiyonlar, döngüler, koşullar, DOM manipülasyonu ve event handling konularını içerir.
+   - **Kapsam: Web sayfalarına etkileşim ekleme ve dinamik içerik oluşturma.
 
-### 3. **Temel Git Eğitimi**
+### 4. **Temel Git Eğitimi**
    - **Dosya:** [git.html](./git.html)
    - **Açıklama:** Git versiyon kontrol sisteminin temelleri, komutlar, branch yönetimi ve GitHub kullanımı.
    - **Kapsam:** Sürüm kontrolü, işbirliği ve kod yönetimi.
 
-### 4. **Temel Tasarım İlkeleri**
+### 5. **Temel Tasarım İlkeleri**
    - **Dosya:** [Dijital Tasarım Ders İçeriği v4-20260207.docx](./Dijital Tasarım Ders İçeriği v4-20260207.docx)
    - **Açıklama:** Tasarımın temel prensipleri, renk teorisi, tipografi ve kullanıcı deneyimi (UX) hakkında bilgiler.
    - **Kapsam:** Görsel tasarım ve kullanıcı arayüzü (UI) temelleri.
@@ -33,8 +38,9 @@ Bu depo, temel web teknolojileri ve programlama araçları hakkında eğitim mat
 
 2. **İlgili dosyayı seçin:**
    - HTML öğrenmek için: `temel-html.html`
-   - CSS öğrenmek için: `css-test.html` klasöründeki dosyalar
-   - Git öğrenmek için: `git.html`
+   - CSS öğrenmek için: `css-test.html`
+   - JS öğrenmek için: `js-test.html`
+   - Git öğrenmek için: `git.html` klasöründeki dosyalar
    - Tasarım ilkeleri için: `Dijital Tasarım Ders İçeriği v4-20260207.docx`
 
 3. **Dosyaları görüntüleyin:**
@@ -46,14 +52,25 @@ Bu depo, temel web teknolojileri ve programlama araçları hakkında eğitim mat
 Yeni başlayanlar için önerilen sıra:
 
 1. **HTML** → `temel-html.html`
-2. **CSS** → `css-test.html` içeriği
-3. **Tasarım** → `Dijital Tasarım Ders İçeriği v4-20260207.docx`
-4. **Git** → `git.html`
+2. **CSS** → `css-test.html` 
+3. **JS** → `js-test.html` içeriği
+4. **Tasarım** → `Dijital Tasarım Ders İçeriği v4-20260207.docx`
+5. **Git** → `git.html`
+   
+🎯 Örnek JavaScript Kullanımı
+   - js-test.html dosyası aşağıdaki konuları içerir:
+   - Değişken tanımlama (let, const, var)
+   - Veri tipleri ve operatörler
+   - Fonksiyonlar ve arrow functions
+   - DOM elementlerine erişim ve manipülasyon
+   - Event listeners ve event handling
 
+Temel algoritma örnekleri
 ## 📝 Notlar
 
 - Tüm HTML dosyaları tarayıcıda çalıştırılabilir durumdadır
 - CSS örnekleri `css-test.html` klasöründe bulunmaktadır
+- JS örnekleri `css-test.html` klasöründe bulunmaktadır
 - Git eğitimi hem teorik hem de pratik komutları içermektedir
 - Tasarım dersi dokümanı teori ağırlıklıdır
 
