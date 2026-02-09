@@ -10,7 +10,7 @@ Bu depo, temel web teknolojileri ve programlama araçları hakkında eğitim mat
    - **Kapsam:** Başlangıç seviyesinden orta seviyeye HTML bilgisi.
 
 ### 2. **Temel CSS Eğitimi**
-   - **Dosya:** [css-test](./css-test) (klasör/dosya)
+   - **Dosya:** [css-test](./css-test.html) (klasör/dosya)
    - **Açıklama:** CSS temelleri, selektörler, box model, flexbox, grid ve responsive tasarım konularını içerir.
    - **Kapsam:** Stil sayfaları oluşturma ve web sayfalarını biçimlendirme.
 
@@ -20,7 +20,7 @@ Bu depo, temel web teknolojileri ve programlama araçları hakkında eğitim mat
    - **Kapsam:** Sürüm kontrolü, işbirliği ve kod yönetimi.
 
 ### 4. **Temel Tasarım İlkeleri**
-   - **Dosya:** [temel tasarım.docx](./Dijital Tasarım Ders İçeriği v4-20260207.docx)
+   - **Dosya:** [Dijital Tasarım Ders İçeriği v4-20260207.docx](./Dijital Tasarım Ders İçeriği v4-20260207.docx)
    - **Açıklama:** Tasarımın temel prensipleri, renk teorisi, tipografi ve kullanıcı deneyimi (UX) hakkında bilgiler.
    - **Kapsam:** Görsel tasarım ve kullanıcı arayüzü (UI) temelleri.
 
@@ -28,12 +28,12 @@ Bu depo, temel web teknolojileri ve programlama araçları hakkında eğitim mat
 
 1. **Depoyu Klonlayın:**
    ```bash
-   git clone https://github.com/kullanici-adi/repo-adi.git
+   git clone https://github.com/sakaryadigem/dijitaltasarim.git
    ```
 
 2. **İlgili dosyayı seçin:**
    - HTML öğrenmek için: `temel-html.html`
-   - CSS öğrenmek için: `css-test` klasöründeki dosyalar
+   - CSS öğrenmek için: `css-test.html` klasöründeki dosyalar
    - Git öğrenmek için: `git.html`
    - Tasarım ilkeleri için: `Dijital Tasarım Ders İçeriği v4-20260207.docx`
 
@@ -46,14 +46,14 @@ Bu depo, temel web teknolojileri ve programlama araçları hakkında eğitim mat
 Yeni başlayanlar için önerilen sıra:
 
 1. **HTML** → `temel-html.html`
-2. **CSS** → `css-test` içeriği
+2. **CSS** → `css-test.html` içeriği
 3. **Tasarım** → `Dijital Tasarım Ders İçeriği v4-20260207.docx`
 4. **Git** → `git.html`
 
 ## 📝 Notlar
 
 - Tüm HTML dosyaları tarayıcıda çalıştırılabilir durumdadır
-- CSS örnekleri `css-test` klasöründe bulunmaktadır
+- CSS örnekleri `css-test.html` klasöründe bulunmaktadır
 - Git eğitimi hem teorik hem de pratik komutları içermektedir
 - Tasarım dersi dokümanı teori ağırlıklıdır
 
