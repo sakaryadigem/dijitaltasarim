@@ -14,7 +14,7 @@ Bu depo, temel web teknolojileri ve programlama araçları hakkında eğitim mat
    - **Açıklama:** CSS temelleri, selektörler, box model, flexbox, grid ve responsive tasarım konularını içerir.
    - **Kapsam:** Stil sayfaları oluşturma ve web sayfalarını biçimlendirme.
    - 
-### 2. **Temel JS Eğitimi**
+### 3. **Temel JS Eğitimi**
    - **Dosya:** [js-test.html](./js-test.html) (klasör/dosya)
    - **Açıklama: JavaScript'in temelleri, değişkenler, fonksiyonlar, döngüler, koşullar, DOM manipülasyonu ve event handling konularını içerir.
    - **Kapsam: Web sayfalarına etkileşim ekleme ve dinamik içerik oluşturma.
